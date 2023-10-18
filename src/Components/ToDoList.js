@@ -11,6 +11,8 @@ const TodoList = () => {
   const [description, setDescription] = useState("");
   const [popupVisible, setPopupVisible] = useState(false);
   const [currentTask, setCurrentTask] = useState({ id: 0, text: "" });
+  
+  const [checked, setChecked] = useState([]);
 
   const openPopup = () => {
     setPopupVisible(true);
@@ -31,6 +33,14 @@ const TodoList = () => {
     setDescription("");
     setCurrentTask({ id: 0, title: "" });
     closePopup();
+  };
+
+  const handleCheck = (taskId) => {
+    if (checked.includes(taskId)) {
+      setChecked(checked.filter(id => id !== taskId));
+    } else {
+      setChecked([...checked, taskId]);
+    }
   };
 
   const handleAdd = () => {
@@ -55,6 +65,7 @@ const TodoList = () => {
         <table>
           <thead>
             <tr>
+              <th></th>
               <th>ID</th>
               <th>Title</th>
               <th>Description</th>
@@ -63,7 +74,14 @@ const TodoList = () => {
           </thead>
           <tbody>
             {todos.map((todo) => (
-              <tr key={todo.id}>
+              <tr key={todo.id} className={checked.includes(todo.id) ? "completed" : ""}>
+                <td>
+                  <input
+                    type="checkbox"
+                    onChange={() => handleCheck(todo.id)}
+                    checked={checked.includes(todo.id)}
+                  />
+                </td>
                 <td>{todo.id}</td>
                 <td>{todo.title}</td>
                 <td>{todo.description}</td>
@@ -88,7 +106,7 @@ const TodoList = () => {
           </tbody>
         </table>
       </div>
-      <button onClick={handleAdd}>Add</button>
+      <button className='table-button' onClick={handleAdd}>Add</button>
       {popupVisible && (
         <div className="popup-container">
           <div className="popup-content">
