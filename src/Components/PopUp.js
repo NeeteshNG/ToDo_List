@@ -1,11 +1,16 @@
-const { useState } = require("react");
+import { addTodo } from "../ToDoSlice";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { nanoid } from "@reduxjs/toolkit";
 
 const PopUp = ({ visible, onSave, onCancel }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const dispatch = useDispatch();
 
   const handleSave = () => {
     onSave(title, description);
+    dispatch(addTodo({ id: nanoid, title, description }));
     setTitle("");
     setDescription("");
   };

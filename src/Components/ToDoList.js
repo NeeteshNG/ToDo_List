@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, updateTodo, deleteTodo } from "../ToDoSlice";
+import { updateTodo, deleteTodo } from "../ToDoSlice";
 import { useState } from "react";
 import PopUp from "./PopUp";
 
@@ -19,7 +19,6 @@ const TodoList = () => {
   };
 
   const handleAdd = (title, description) => {
-    dispatch(addTodo({ id: Date.now(), title, description }));
     openPopup();
   };
 
