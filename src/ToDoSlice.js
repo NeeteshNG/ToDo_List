@@ -5,13 +5,15 @@ const toDoSlice = createSlice({
     initialState : [],
     reducers : {
         addTodo : (state, action) => {
-            state.push(action.payload);
+            const { id, title, description } = action.payload;
+            state.push({ id, title, description });
         },
         updateTodo : (state, action) => {
-            const { id, text } = action.payload;
+            const { id, title, description } = action.payload;
             const toDoUpdate = state.find((todo) => todo.id === id);
             if (toDoUpdate) {
-                toDoUpdate.text = text
+                toDoUpdate.title = title
+                toDoUpdate.description = description
             }
         },
         deleteTodo : (state, action) => {
