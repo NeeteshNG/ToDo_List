@@ -77,6 +77,7 @@ const TodoList = () => {
                 <td>
                   <input
                     type="checkbox"
+                    name="checkbox"
                     onChange={() => handleCheck(todo.id)}
                     checked={checked.includes(todo.id)}
                   />
@@ -104,7 +105,7 @@ const TodoList = () => {
           </tbody>
         </table>
       </div>
-      <button className='table-button' onClick={handleAdd}>Add</button>
+      <button className='button-29' onClick={handleAdd}>Add</button>
       {popupVisible && (
         <div className="popup-container">
           <div className="popup-content">
@@ -114,6 +115,7 @@ const TodoList = () => {
                 <div className="inputBox">
                   <input
                     type="text"
+                    name="title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                   />
@@ -122,14 +124,15 @@ const TodoList = () => {
                 <div className="inputBox">
                   <input
                     type="text"
+                    name="description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                   />
                   <i>Description</i>
                 </div>
                 <div className="inputBox">
-                  <button className='button-56' onClick={handleSave}>Save</button>
-                  <button className='button-56' onClick={closePopup}>Cancel</button>
+                  <button className='button-30' onClick={handleSave}>Save</button>
+                  <button className='button-30' onClick={closePopup}>Cancel</button>
                 </div>
               </div>
             </div>
