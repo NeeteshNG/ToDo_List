@@ -66,7 +66,6 @@ const TodoList = () => {
           <thead>
             <tr>
               <th></th>
-              <th>ID</th>
               <th>Title</th>
               <th>Description</th>
               <th>Actions</th>
@@ -82,7 +81,6 @@ const TodoList = () => {
                     checked={checked.includes(todo.id)}
                   />
                 </td>
-                <td>{todo.id}</td>
                 <td>{todo.title}</td>
                 <td>{todo.description}</td>
                 <td className="actions-button">
