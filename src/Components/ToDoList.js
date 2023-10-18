@@ -39,6 +39,8 @@ const TodoList = () => {
 
   const handleUpdate = (id, title, description) => {
     setCurrentTask({ id, title, description });
+    setTitle(title);
+    setDescription(description);
     openPopup();
   };
 
@@ -65,15 +67,21 @@ const TodoList = () => {
                 <td>{todo.id}</td>
                 <td>{todo.title}</td>
                 <td>{todo.description}</td>
-                <td>
+                <td className="actions-button">
                   <button
                     onClick={() =>
                       handleUpdate(todo.id, todo.title, todo.description)
                     }
+                    className="table-button"
                   >
                     Update
                   </button>
-                  <button onClick={() => handleDelete(todo.id)}>Delete</button>
+                  <button
+                    className="table-button"
+                    onClick={() => handleDelete(todo.id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
@@ -84,21 +92,31 @@ const TodoList = () => {
       {popupVisible && (
         <div className="popup-container">
           <div className="popup-content">
-            <h2>Add / Update</h2>
-            <label>Title : </label>
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <label>Description : </label>
-            <input
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <button onClick={handleSave}>Save</button>
-            <button onClick={closePopup}>Cancel</button>
+            <div className="content">
+              <h2>Add / Update</h2>
+              <div className="form">
+                <div className="inputBox">
+                  <input
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                  />
+                  <i>Title</i>
+                </div>
+                <div className="inputBox">
+                  <input
+                    type="text"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                  />
+                  <i>Description</i>
+                </div>
+                <div className="inputBox">
+                  <button className='button-56' onClick={handleSave}>Save</button>
+                  <button className='button-56' onClick={closePopup}>Cancel</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
