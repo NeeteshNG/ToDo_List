@@ -33,18 +33,24 @@ const TodoList = () => {
   };
 
   return (
-    <div className="App">
-        <ul>
-            {todos.map((todo) => {
-            <li key={todo.id}>
-                {todo.title}
-                {todo.description}
-                <button onClick={() => handleUpdate(todo.id, todo.text)}>Update</button>
-                <button onClick={() => handleDelete(todo.id)}>Delete</button>
-            </li>;
-            })}
-            <button onClick={handleAdd}>Add</button>
-        </ul>
+    <div className="page-container">
+        <h1>TODO LIST</h1>
+        <div className="list-container">
+            <ul>
+                {todos.map((todo) => {
+                  return(
+                  <li key={todo.id}>
+                      {todo.id}
+                      {todo.title}
+                      {todo.description}
+                      <button onClick={() => handleUpdate(todo.id, todo.title, todo.description)}>Update</button>
+                      <button onClick={() => handleDelete(todo.id)}>Delete</button>
+                  </li>
+                  );
+                })}
+                <button onClick={handleAdd}>Add</button>
+            </ul>
+        </div>
         <PopUp
             visible={popupVisible}
             onCancel={closePopup}
