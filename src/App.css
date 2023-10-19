@@ -279,3 +279,34 @@ input[type="submit"]:active {
     background-position: 200%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .table-container {
+    margin: 10px;
+  }
+
+  table {
+    padding: 5px;
+  }
+
+  th,
+  td {
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Adjust styles for smaller screens */
+  .table-container {
+    margin: 5px;
+  }
+
+  table {
+    padding: 2px;
+  }
+
+  th,
+  td {
+    padding: 2px;
+  }
+}
