@@ -93,12 +93,12 @@ th {
 .popup-content .content .form .inputBox input {
   position: relative;
   width: 100%;
-  background: #333;
+  background: #81ACDB;
   border: none;
   outline: none;
   padding: 25px 10px 7.5px;
   border-radius: 4px;
-  color: #81acdb;
+  color: #002c6d;
   font-weight: 500;
   font-size: 1em;
 }
@@ -108,7 +108,7 @@ th {
   left: 0;
   padding: 15px 10px;
   font-style: normal;
-  color: #aaa;
+  color: #002c6d;
   transition: 0.5s;
   pointer-events: none;
 }
@@ -117,7 +117,7 @@ th {
 .popup-content .content .form .inputBox input:valid~i {
   transform: translateY(-7.5px);
   font-size: 0.8em;
-  color: #81acdb;
+  color: #002c6d;
 }
 
 .popup-content .content .form .links {

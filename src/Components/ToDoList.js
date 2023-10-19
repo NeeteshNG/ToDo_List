@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, updateTodo, deleteTodo } from "../ToDoSlice";
+import { addTodo, updateTodo, deleteTodo, completeTodo } from "../ToDoSlice";
 import { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 
@@ -11,8 +11,6 @@ const TodoList = () => {
   const [description, setDescription] = useState("");
   const [popupVisible, setPopupVisible] = useState(false);
   const [currentTask, setCurrentTask] = useState({ id: 0, text: "" });
-  
-  const [checked, setChecked] = useState([]);
 
   const openPopup = () => {
     setPopupVisible(true);
@@ -36,11 +34,7 @@ const TodoList = () => {
   };
 
   const handleCheck = (taskId) => {
-    if (checked.includes(taskId)) {
-      setChecked(checked.filter(id => id !== taskId));
-    } else {
-      setChecked([...checked, taskId]);
-    }
+    dispatch(completeTodo(taskId))
   };
 
   const handleAdd = () => {
@@ -73,13 +67,13 @@ const TodoList = () => {
           </thead>
           <tbody>
             {todos.map((todo) => (
-              <tr key={todo.id} className={checked.includes(todo.id) ? "completed" : ""}>
+              <tr key={todo.id} className={todo.complete ? "completed" : ""}>
                 <td>
                   <input
                     type="checkbox"
                     name="checkbox"
                     onChange={() => handleCheck(todo.id)}
-                    checked={checked.includes(todo.id)}
+                    checked={todo.complete}
                   />
                 </td>
                 <td>{todo.title}</td>
