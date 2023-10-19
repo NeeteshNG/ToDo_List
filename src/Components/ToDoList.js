@@ -34,7 +34,8 @@ const TodoList = () => {
   };
 
   const handleCheck = (taskId) => {
-    dispatch(completeTodo(taskId))
+    const todo = todos.find((t) => t.id === taskId)
+    dispatch(completeTodo({ id : taskId, complete : !todo.complete }))
   };
 
   const handleAdd = () => {
@@ -83,6 +84,8 @@ const TodoList = () => {
                     onClick={() =>
                       handleUpdate(todo.id, todo.title, todo.description)
                     }
+                    id={todo.complete ? "disable-button" : ""}
+                    disabled={todo.complete}
                     className="table-button"
                   >
                     Update

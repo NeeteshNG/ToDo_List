@@ -18,10 +18,10 @@ const toDoSlice = createSlice({
             }
         },
         completeTodo : (state, action) => {
-            const id = action.payload;
+            const { id, complete } = action.payload;
             const toDoComplete = state.find((todo) => todo.id === id);
             if (toDoComplete) {
-                toDoComplete.complete = true
+                toDoComplete.complete = complete
             }
         },
         deleteTodo : (state, action) => {

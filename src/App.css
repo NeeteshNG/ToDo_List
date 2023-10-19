@@ -249,3 +249,8 @@ input[type="submit"]:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
+
+#disable-button{
+  background-color: #333333;
+  cursor: not-allowed;
+}
