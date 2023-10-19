@@ -255,3 +255,27 @@ input[type="submit"]:active {
   background-color: #333333;
   cursor: not-allowed;
 }
+
+.head{
+  font-size: 70px;
+  font-weight: 600;
+  background-image: linear-gradient(to right ,#553c9a, #ee4b2b, #00c2cb, #ff7f50, #553c9a);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 50%;
+  background-position: -50%; 
+  animation: animated-gradient 2s infinite alternate-reverse;
+
+
+  /* font-size: 70px;
+  font-weight: 600;
+  color: #007BFF;
+  text-shadow: 0px 0px 5px #93c7ff, 0px 0px 10px #93c7ff, 0px 0px 10px #93c7ff,
+  0px 0px 20px #93c7ff; */
+}
+@keyframes animated-gradient{
+  to{
+    background-position: 200%;
+  }
+}

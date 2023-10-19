@@ -55,7 +55,7 @@ const TodoList = () => {
 
   return (
     <div className="page-container">
-      <h1>TODO LIST</h1>
+      <h1 className="head">TODO LIST</h1>
       <div className="table-container">
         <table>
           <thead>
