@@ -310,3 +310,13 @@ input[type="submit"]:active {
     padding: 2px;
   }
 }
+
+.counter{
+  background-image: linear-gradient(to right ,#553c9a, #ee4b2b, #00c2cb, #ff7f50, #553c9a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+    background-size: 30%;
+  background-position: -30%; 
+  font-size: 10px;
+}
