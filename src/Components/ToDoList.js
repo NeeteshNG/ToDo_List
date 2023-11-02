@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, updateTodo, deleteTodo, completeTodo } from "../ToDoSlice";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 
 const TodoList = () => {
@@ -12,8 +12,16 @@ const TodoList = () => {
   const [popupVisible, setPopupVisible] = useState(false);
   const [currentTask, setCurrentTask] = useState({ id: 0, text: "" });
 
+  const inputRef = useRef(null)
+  const renderCount = useRef(0)
+
+  renderCount.current += 1
+
   const openPopup = () => {
     setPopupVisible(true);
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   };
 
   const closePopup = () => {
@@ -55,7 +63,10 @@ const TodoList = () => {
 
   return (
     <div className="page-container">
-      <h1 className="head">TODO LIST</h1>
+      <div className="text-container">
+        <h3 className="counter">RENDER COUNT : {renderCount.current}</h3>
+        <h1 className="head">TODO LIST</h1>
+      </div>
       <div className="table-container">
         <table>
           <thead>
@@ -114,6 +125,7 @@ const TodoList = () => {
                     type="text"
                     name="title"
                     value={title}
+                    ref={inputRef}
                     onChange={(e) => setTitle(e.target.value)}
                   />
                   <i>Title</i>
