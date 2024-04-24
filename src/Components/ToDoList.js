@@ -113,7 +113,7 @@ const TodoList = () => {
           </tbody>
         </table>
       </div>
-      <button className='button-29' onClick={handleAdd}>Add</button>
+      <button className='button-29' onClick={handleAdd}>Add a Task</button>
       {popupVisible && (
         <div className="popup-container">
           <div className="popup-content">
